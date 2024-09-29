@@ -1,7 +1,7 @@
 # simpleClientServer
-Special for Linux OS.
+Special for Linux OS.  
 Usage:  
 :make  
-:./Server
-:./Client 
+:./Server  
+:./Client   
 Ctrl+C break.  
