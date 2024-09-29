@@ -2,6 +2,6 @@
 Special for Linux OS.
 Usage:  
 :make  
-:./Server [first]  
-:./Client [second]  
+:./Server
+:./Client 
 Ctrl+C break.  
