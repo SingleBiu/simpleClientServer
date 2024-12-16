@@ -2,7 +2,7 @@
  * @Author: SingleBiu
  * @Date: 2021-09-13 10:53:50
  * @LastEditors: SingleBiu
- * @LastEditTime: 2024-12-16 20:45:50
+ * @LastEditTime: 2024-12-16 19:14:38
  * @Description: file content
  */
 #include <sys/types.h>
@@ -15,11 +15,9 @@
 #include <string.h>
 #include <stdlib.h>
 
-#define NET_CFG_FILE "net.conf"
-#define LOOP 1
-
 int tcp_send(const char *serv_ip,short serv_port);
 
+#define NET_CFG_FILE "net.conf"
 
 int tcp_send(const char *serv_ip,short serv_port)
 {
@@ -55,10 +53,8 @@ retry:
         return -1;
     }
 
-    #if LOOP
     while (1)
     {
-    #endif
         // 清空
         memset(sendbuf,0,sizeof(sendbuf));
         memset(recvbuf,0,sizeof(recvbuf));
@@ -73,9 +69,7 @@ retry:
         if (n == 0)
         {
             printf("Server terminated prematually\n");
-            #if LOOP
             break;
-            #endif
         }
         else if (n < -1)
         {
@@ -83,11 +77,10 @@ retry:
         }
         
         printf("received: %s\n",recvbuf);
-    #if LOOP
         //间隔2秒发送一次
         sleep(2);
     }
-    #endif
+
     return -1;
 }
 
